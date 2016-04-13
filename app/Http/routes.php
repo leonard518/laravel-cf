@@ -15,26 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/* Podemos definir que los parametros sean opcionales e indicar uno por default */
-/*Route::get('articles/{nombre?}', function($nombre = "No coloco nombre"){
-    return "El nombre es: ".$nombre;
-});*/
+/* Grupo de rutas para la administracion */
+Route::group(['prefix' => 'admin'], function(){
 
-/* Agregar nombres a las rutas*/
-Route::get('articles',[
-    'as'    => 'alias',
-    'uses'  => function(){
-        return "Alias en las rutas";
-    }
-]);
-
-/* Grupo de rutas*/
-Route::group(['prefix'=>'articles'],function(){
-
-    Route::get('view/{id}',[
-        'uses'  =>  'TestController@view',
-        'as'    =>  'articlesViews'
-    ]);
+    Route::resource('users', 'UsersController');
 
 });
-

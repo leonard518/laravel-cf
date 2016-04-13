@@ -6,10 +6,23 @@
     <link rel="stylesheet" href="{!! asset('assets/css/bootstrap.min.css') !!}">
 </head>
 <body>
-    @include('admin.template.partials.nav')
-    <section>
-        @yield('content')
-    </section>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            @include('admin.template.partials.nav')
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="panel panel-default">
+                <div class="panel-heading">@yield('title')</div>
+                <div class="panel-body">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <script src="{!! asset('assets/js/jquery.min.js') !!}"></script>
     <script src="{!! asset('assets/js/bootstrap.min.js') !!}"></script>
 </body>
